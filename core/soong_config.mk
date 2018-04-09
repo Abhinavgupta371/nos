@@ -96,6 +96,7 @@ $(SOONG_VARIABLES): FORCE
 	echo '    "BoardUsesQTIHardware":  $(if $(BOARD_USES_QTI_HARDWARE),true,false),';  \
 	echo '    "BoardUsesQCOMHardware":  $(if $(BOARD_USES_QCOM_HARDWARE),true,false),';  \
 	echo '    "TargetUsesQCOMBsp":  $(if $(TARGET_USES_QCOM_BSP),true,false)';  \
+	echo '    "Target_shim_libs": "$(subst $(space),:,$(TARGET_LD_SHIM_LIBS))"'; \
 	echo '}') > $(SOONG_VARIABLES_TMP); \
 	if ! cmp -s $(SOONG_VARIABLES_TMP) $(SOONG_VARIABLES); then \
 	  mv $(SOONG_VARIABLES_TMP) $(SOONG_VARIABLES); \
